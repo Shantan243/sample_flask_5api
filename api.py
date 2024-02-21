@@ -4,22 +4,22 @@
 # In[ ]:
 
 
-from flask import Flask, request, jsonify
-
+from flask import Flask, request
+ 
 app = Flask(__name__)
-
-@app.route('/print_arguments', methods=['GET'])
-def print_arguments():
-    arg1 = request.args.get('arg1')
-    arg2 = request.args.get('arg2')
-    arg3 = request.args.get('arg3')
-    arg4 = request.args.get('arg4')
-    arg5 = request.args.get('arg5')
-
-    # Concatenate the arguments
-    result = f"Arguments: {arg1}, {arg2}, {arg3}, {arg4}, {arg5}"
-    return jsonify({'result': result})
-
+ 
+@app.route('/arguments', methods=['GET'])
+def arguments():
+    arg1 = "Hello"
+    arg2 = "world"
+    arg3 = "from"
+    arg4 = "Python"
+    arg5 = "API"
+    return f"{arg1} {arg2} {arg3} {arg4} {arg5}"
+ 
+result = arguments()
+print(result)
+ 
 if __name__ == '__main__':
     app.run(debug=True)
 
